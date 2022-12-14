@@ -16,25 +16,23 @@ namespace EmpWageProblems
             int dailyEmp = 0;
             Random random= new Random();
             int empcheck = random.Next(3);
-            if(empcheck == 1)
+            switch (empcheck)
             {
-                Console.WriteLine(" Full-Time");
-                empHour = 16;
-            }
-            else if (empcheck == 2)
-            {
-                Console.WriteLine(" Part-Time ");
-                empHour = 8;
-            }
-            else
-            {
-                Console.WriteLine("Employee is absent");
-                empHour = 0;
+                case 1:
+                    empHour = 16;
+                    Console.WriteLine("Full-Time");
+                    break;
+                case 2:
+                    empHour = 8;
+                    Console.WriteLine("Part-Time");
+                    break;
+                case 3:
+                    empHour = 0;
+                    Console.WriteLine("Employee is absent");
+                    break;
             }
             dailyEmp = empHour * wagePerHour;
             Console.WriteLine("Total Employee wage is " + dailyEmp);
-
-
         }
     }
 }
