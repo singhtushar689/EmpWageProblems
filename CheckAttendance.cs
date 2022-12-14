@@ -15,10 +15,15 @@ namespace EmpWageProblems
             int empHour = 0;
             int dailyEmp = 0;
             Random random= new Random();
-            int empcheck = random.Next(2);
+            int empcheck = random.Next(3);
             if(empcheck == 1)
             {
-                Console.WriteLine("Employee is present");
+                Console.WriteLine(" Full-Time");
+                empHour = 16;
+            }
+            else if (empcheck == 2)
+            {
+                Console.WriteLine(" Part-Time ");
                 empHour = 8;
             }
             else
