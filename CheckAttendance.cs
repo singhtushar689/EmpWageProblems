@@ -8,41 +8,46 @@ namespace EmpWageProblems
 {
     internal class CheckAttendance
     {
+        public const int IS_PRESENT = 1;
+        public const int IS_ABSENT = 2;
+        public const int MAX_WORKING_HOURS = 100;
+        public const int MAX_DAYS = 20;
+        public const int EMP_WAGE_PER_HOUR = 20;
         public static void Attendance()
         {
-            int present = 1;
-            int wagePerHour = 20;
-            int maxDays = 20;
+   
             int empHour = 0;
             int dailyEmp = 0;
             int totalWage = 0;
+            int totalEmpHours = 0;
+            int totalWorkingDays = 0;
             
-            for (int i = 1; i <= maxDays; i++)
+            int countHrs = 0;
+            while (totalEmpHours < MAX_WORKING_HOURS && totalWorkingDays < MAX_DAYS )
             {
-                Random random = new Random();
-                int empcheck = random.Next(3);
-                switch (empcheck)
-                {
-                    case 1:
-                        empHour = 16;
-                        Console.WriteLine("Full-Time");
-                        break;
-                    case 2:
-                        empHour = 8;
-                        Console.WriteLine("Part-Time");
-                        break;
-                    default :
-                        empHour = 0;
-                        Console.WriteLine("Employee is absent");
-                        break;
-                       
-                }
-                totalWage += dailyEmp;
-                dailyEmp = wagePerHour * empHour;
-                Console.WriteLine("Daily Employee wage is " + dailyEmp);
-               
+                    totalWorkingDays++;
+                    Random random = new Random();
+                    int empCheck = random.Next(3);
+                    switch (empCheck)
+                    {
+                    case IS_PRESENT:
+                            empHour = 16;
+                            break;
+                    case IS_ABSENT:
+                            empHour = 8;       
+                            break;
+                     default:
+                            empHour = 0;
+                            break;
+                    }
+              
+                totalEmpHours += empHour;
 
+                dailyEmp = EMP_WAGE_PER_HOUR * empHour;
+                Console.WriteLine("The daily wage is {0}",dailyEmp);   
+                totalWage += dailyEmp;
             }
+            Console.WriteLine("Daily Employee wage is " + dailyEmp);
             Console.WriteLine("Total EmployeeWage is " + totalWage);
 
 
