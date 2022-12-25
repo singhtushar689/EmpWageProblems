@@ -1,11 +1,14 @@
 ﻿namespace EmpWageProblems
 {
-    internal class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to Employee Wage Problems");
-            CheckAttendance.Attendance();
+            EmpWageBuildArray empWageBuildArray = new EmpWageBuildArray();
+            empWageBuildArray.addCompanyEmpWage("Deloitte", 20, 15, 60);
+            empWageBuildArray.addCompanyEmpWage("Google", 50, 25, 80);
+            empWageBuildArray.computeEmpWage();
+            
         }
     }
 }
